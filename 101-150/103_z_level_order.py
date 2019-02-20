@@ -27,3 +27,35 @@ class Solution:
         return ans[:-1]
 
 print(Solution().levelOrder(creatTree([3,9,20,None,None,15,7])))
+'''
+new code
+class Solution(object):
+    def zigzagLevelOrder(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[List[int]]
+        """
+        if not root:
+            return []
+        stack = [root]
+        rlt = [[root.val]]
+        cnt = 1
+        while stack:
+            new_stack = []
+            cur_rlt = []
+            for node in stack:
+                if node.left:
+                    new_stack.append(node.left)
+                    cur_rlt.append(node.left.val)
+                if node.right:
+                    new_stack.append(node.right)
+                    cur_rlt.append(node.right.val)
+            
+            if cnt%2:
+                cur_rlt.reverse()
+            if cur_rlt:
+                rlt.append(cur_rlt)
+            stack = new_stack
+            cnt +=1
+        return rlt
+'''
