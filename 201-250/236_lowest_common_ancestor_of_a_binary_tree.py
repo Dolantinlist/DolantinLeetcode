@@ -6,8 +6,8 @@ class Solution(object):
         self.path_finder(root, pathp, p)
         self.path_finder(root, pathq, q)
         while len(pathp) and len(pathq):
-            a = pathp.pop()
-            b = pathq.pop()
+            a = pathp.pop(0)
+            b = pathq.pop(0)
             if a == b:
                 return a
         return -1
