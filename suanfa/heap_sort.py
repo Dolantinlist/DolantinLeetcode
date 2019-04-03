@@ -1,5 +1,5 @@
 def heap_sort(lst):
-    for start in range((len(lst) - 2) / 2, -1, -1):
+    for start in range((len(lst) - 2) // 2, -1, -1):
         sift_down(lst, start, len(lst) - 1)
     for end in range(len(lst) - 1, 0, -1):
         lst[0], lst[end] = lst[end], lst[0]
