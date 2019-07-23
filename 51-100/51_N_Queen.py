@@ -15,6 +15,7 @@ class Solution(object):
         i = len(queen)
         if i == n:
             res.append(queen)
+            return
         for j in range(n):
             if j not in queen and i + j not in add and i - j not in diff:
                 self.dfs(n, queen + [j], add + [i + j], diff + [i - j], res)

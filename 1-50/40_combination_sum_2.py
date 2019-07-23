@@ -1,20 +1,18 @@
 class Solution(object):
     def combinationSum2(self, candidates, target):
-        res = []
         candidates.sort()
-        self.dfs(candidates, target, 0, [], res)
-        return res
+        result = []
+        self.combine_sum_2(candidates, 0, [], result, target)
+        return result
 
-    def dfs(self, nums, target, index, path, res):
-        if target < 0:
+    def combine_sum_2(self, nums, start, path, result, target):
+        if not target:
+            result.append(path)
             return
-        elif target == 0:
-            flag = True
-            for j in range(len(res)):
-                if res[j] == path:
-                    flag = False
-            if flag:
-                res.append(path)
-            return
-        for i in range(index, len(nums)):
-            self.dfs(nums, target - nums[i], i+1, path + [nums[i]], res)
+        for i in range(start, len(nums)):
+            if i > start and nums[i] == nums[i - 1]:
+                continue
+            if nums[i] > target:
+                break
+            self.combine_sum_2(nums, i + 1, path + [nums[i]],
+                               result, target - nums[i])

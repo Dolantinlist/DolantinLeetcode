@@ -12,3 +12,6 @@ class Solution(object):
             else:
                 stack = [0]
         return result
+
+s = ")())(())"
+print(Solution().longest_valid_parenthese(s))

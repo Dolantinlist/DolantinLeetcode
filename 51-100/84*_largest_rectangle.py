@@ -12,5 +12,6 @@ class Solution:
         heights.pop()
         return ans
 
+#小数沉底栈
 h = [2,1,5,6,2,3]
 print(Solution().largestRectangleArea(h))

@@ -17,5 +17,5 @@ class Solution(object):
         return dp[-1]
 
 s = "abcd"
-p = "*d"
+p = "a*d"
 print(Solution().isMatch(s, p))
